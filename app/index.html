@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testing GUI</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Web Starter Kit">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+  <!-- Tile icon for Win8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#2F3BA2">
+
+  <!-- Color the status bar on mobile devices -->
+  <meta name="theme-color" content="#2F3BA2">
+
+  <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+  <!--
+  <link rel="canonical" href="http://www.example.com/">
+-->
+
+<!-- Material Design icons -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+<!-- Material Design Lite page styles:
+You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+Format: material.color1-color2.min.css, some examples:
+material.red-teal.min.css
+material.blue-orange.min.css
+material.purple-indigo.min.css
+-->
+<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+
+<!-- Your styles -->
+<link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <dialog class="mdl-dialog" id="step-form-dialog">
+    <h4 class="mdl-dialog__title">Step Information</h4>
+    <div class="mdl-dialog__content">
+      <form class="" id="step-form" action="#">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <input class="mdl-textfield__input" name="stepName"type="text" id="step-name">
+          <label class="mdl-textfield__label" for="sample3">Name</label>
+        </div>
+        <br>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <textarea class="mdl-textfield__input" type="text" rows= "3" name="stepDescription" id="step-desc"></textarea>
+          <label class="mdl-textfield__label" for="schools">Description</label>
+        </div>
+        <br>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <textarea class="mdl-textfield__input" type="text" rows= "3" name="stepInput" id="step-input"></textarea>
+          <label class="mdl-textfield__label" for="schools">Input</label>
+        </div>
+        <br>
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+          <textarea class="mdl-textfield__input" type="text" rows= "3" name="stepOutput" id="step-output"></textarea>
+          <label class="mdl-textfield__label" for="schools">Output</label>
+        </div>
+      </form>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="submit"
+      class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      id="add-step">Add</button>
+      <button type="submit"
+      class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
+      id="save-step">Edit</button>
+      <button type="button" class="mdl-button close" id="close-step-form">Discard</button>
+    </div>
+  </dialog>
+
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <h1>Testing GUI <br><small>Just a little tool to keep track of an end to end test</small></h1>
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <a id="setup-tab" href="#setup-panel" class="mdl-layout__tab is-active">Setup</a>
+        <a id="test-tab" href="#test-panel" class="mdl-layout__tab">Test</a>
+        <a id="summary-tab" href="#summary-panel" class="mdl-layout__tab">Summary</a>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel" id="setup-panel">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+              <h3 class="mdl-cell mdl-cell--12-col">Details</h3>
+              <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                <div class="section__circle-container__circle mdl-color--primary"><span class="detail-step">1</span></div>
+              </div>
+              <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <h4>Create a new step</h4>
+                Click on the "+" button to add a new step to the test script
+              </div>
+              <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                <div class="section__circle-container__circle mdl-color--primary"><span class="detail-step">2</span></div>
+              </div>
+              <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <h4>Provide step details</h4>
+                Description: brief description of the step.
+                Input: Possible sample data needed for the step.
+                Output: Expected output of the step.
+              </div>
+              <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                <div class="section__circle-container__circle mdl-color--primary"><span class="detail-step">3</span></div>
+              </div>
+              <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                <h4>Go!</h4>
+                Once you have added all the steps of your script test click the start button, a new interface will guide you through all of your steps allowing you to indicate if the step was successfull or if it failed and allow you to write some comments on it.
+              </div>
+            </div>
+          </div>
+          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+            <i class="material-icons">more_vert</i>
+          </button>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+            <li class="mdl-menu__item">Hide</li>
+          </ul>
+        </section>
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text">
+              <h3>Steps List</h3>
+              <ul class="step-list demo-list-item mdl-list" id="steps-list">
+              </ul>
+              <div class="clearfix">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent add-btn" id="open-step-form">
+                  <i class="material-icons" role="presentation">add</i>
+                  <span class="visuallyhidden">Add</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div style="text-align:center">
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-shadow--4dp start-btn" id="clear-test">
+            Clear List
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent start-btn" id="start-test">
+            Go!
+          </button>
+        </div>
+
+      </div>
+      <div class="mdl-layout__tab-panel" id="test-panel">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+              <h3 class="mdl-cell mdl-cell--12-col">Progress</h3>
+              <div id="progress-bar"class="progress">
+              </div>
+              <div style="margin:10px; width:100%;">
+
+              </div>
+              <div class="section__text mdl-cell mdl-cell--12-col" id="step-test">
+              </div>
+              <div class="section__text mdl-cell mdl-cell--12-col">
+                <div class="step-details">
+                  <h4>Comments:</h4>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%">
+                    <textarea class="mdl-textfield__input" type="text" rows= "5" name="stepComment" id="step-comment"></textarea>
+                    <label class="mdl-textfield__label" for="schools">Comments</label>
+                  </div>
+                </div>
+              </div>
+              <div style="text-align:center; width: 100%">
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-shadow--4dp start-btn" id="test-step-failed">
+                  Failed <i class="material-icons btn">sentiment_very_dissatisfied</i>
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent start-btn" id="test-step-succed">
+                  Succed!  <i class="material-icons btn">sentiment_very_satisfied</i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="mdl-layout__tab-panel is-active" id="summary-panel">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+              <h3 class="mdl-cell mdl-cell--12-col">Summary</h3>
+              <div class="section__text mdl-cell mdl-cell--12-col" id="test-summary">
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+  </script>
+  <!-- build:js scripts/main.min.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+
+</body>
+</html>
